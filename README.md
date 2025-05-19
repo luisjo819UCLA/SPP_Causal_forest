@@ -8,6 +8,8 @@ Plots of the Heterogeneus Treatment Effects (HTE) can be found in the following 
 
 ## 📁 Project Structure
 
+Try to follow this structure in your work space.
+
 ```
 replication_package/
 ├── data/                  # Required .rds and .dta files
