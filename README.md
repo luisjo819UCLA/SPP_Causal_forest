@@ -19,6 +19,38 @@ Where:
 
 This repository contains the full set of scripts used to prepare, estimate, and visualize heterogeneous treatment effect models of Colombia's *Ser Pilo Paga* (SPP) program for the 2014 and 2015 cohorts, using Causal Forests.
 
+### Why use Causal Random Forest?
+
+Causal Random Forest (CRF) is a modern machine learning method designed to estimate **heterogeneous treatment effects** — that is, how the impact of a policy or intervention varies across individuals with different characteristics.
+
+In the context of *Ser Pilo Paga* (SPP), we are not just interested in the **average effect** of receiving the scholarship, but rather:
+- Who benefits more or less from it?
+- Does the effect vary by socioeconomic status or academic performance?
+
+CRF is ideal because:
+- It handles **high-dimensional covariates** without requiring manual variable selection.
+- It automatically captures **nonlinear interactions** between variables.
+- It produces **individual-level treatment effect estimates** with confidence intervals.
+- It avoids overfitting by using **honest estimation** (splitting data between training and estimation sets).
+
+---
+
+### How does it work?
+
+Causal Random Forest builds on the logic of traditional random forests, but is adapted for causal inference. The core idea is to estimate the **Conditional Average Treatment Effect (CATE)**:
+
+$$\tau(X_i) = \mathbb{E}[Y_i(1) - Y_i(0) \mid X_i]$$
+
+Steps (simplified):
+1. **Input data**: Observed outcomes, treatment status, and covariates.
+2. **Tree construction**: The algorithm grows many trees by recursively partitioning the data based on covariates that best explain differences in treatment effects.
+3. **Honest estimation**: Separate samples are used for deciding the splits and estimating treatment effects, which avoids overfitting.
+4. **Prediction**: For any individual, the model averages across all trees to predict their personalized treatment effect.
+
+Causal Forest is implemented using the `grf` package in R (Generalized Random Forests).
+
+---
+
 Plots of the Heterogeneus Treatment Effects (HTE) can be found in the following [URL](https://luisjo819ucla.github.io/SPP_Causal_forest/) 
 The scripts can be found in the scripts folder.
 ---
