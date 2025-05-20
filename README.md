@@ -1,6 +1,6 @@
 # Replication Package – Causal Random Forest for SPP (Ser Pilo Paga)
 
-This project estimates the **heterogeneous treatment effects (HTE)** of the *Ser Pilo Paga (SPP)* financial aid program on various outcomes such as university enrollment, graduation, and long-term labor market performance. *Ser Pilo Paga (SPP)* is a colombian student loan scheme, where the loan is forgiven as long as the student graduates from the program. The analysis focuses on how the effect of receiving the SPP scholarship varies across individuals with different baseline characteristics.
+This project estimates the **heterogeneous treatment effects (HTE)** of the *Ser Pilo Paga (SPP)* financial aid program on various outcomes such as **university enrollment, graduation, and long-term labor market performance**. *Ser Pilo Paga (SPP)* is a colombian student loan scheme, where the loan is forgiven as long as the student graduates from the program. The analysis focuses on how the effect of receiving the SPP scholarship varies across individuals with different baseline characteristics. The program admision depends on a threshold in the socioeconomic score (SISBEN) and academic score (SABER 11).
 
 ### Causal Identification Strategy
 
@@ -54,6 +54,48 @@ Causal Forest is implemented using the `grf` package in R (Generalized Random Fo
 Plots of the Heterogeneus Treatment Effects (HTE) can be found in the following [URL](https://luisjo819ucla.github.io/SPP_Causal_forest/) 
 
 The scripts can be found in the scripts folder.
+
+### 3D Heterogeneous Treatment Effect (HTE) Surface Plots
+
+These plots show how the estimated treatment effect varies along:
+
+- Socioeconomic status (SISBEN score)
+- Academic achievement (Saber 11 score)
+
+**How to read:**  
+- The **Z-axis (height)** represents the estimated CATE (treatment effect).
+- The **X- and Y-axes** correspond to the two selected variables.
+- Curved or sloped surfaces indicate that the treatment effect varies across those variables.
+
+These plots help detect where the policy is **most and least effective** in the population.
+
+### Partial Dependence Plots (PDPs)
+
+PDPs show how the **average treatment effect** varies with respect to **a couple significant variables**, holding all others constant.
+
+**Purpose:**  
+To isolate the marginal effect of two variables on the treatment effect.
+
+**How to read:**  
+- The X-axis is the variable with the most importance in the model
+- The Y-axis is the second variable in the importance of the model
+- The color shows the **average CATE** across the population for each value of the combinatioso of the variables.
+
+PDPs offer an intuitive way to **summarize heterogeneity** along individual features.
+
+### Wrapped Plots for Categorical Variables
+
+When an important covariate is **categorical** (e.g., school sector, parental education), we use **"wrap" or faceted plots** that display the distribution of treatment effects regarding SABER 11 and SISBEN score, **across categories**.
+
+**Purpose:**  
+To compare how the CATE varies across groups that are not ordered numerically.
+
+**How to read:**  
+- Each facet (or panel) represents a category (e.g., “Public School” vs. “Private School”).
+- Each plot shows the treatment effect distribution for individuals in that category, across SABER 11 and SISBEN score.
+- Helps identify **group-level differences** in impact.
+
+These plots complement the 3D and PDP outputs by giving more insight into **non-continuous drivers of heterogeneity**.
 
 ---
 
