@@ -1,5 +1,16 @@
 # Replication Package – Causal Random Forest for SPP (Ser Pilo Paga)
 
+This project estimates the **heterogeneous treatment effects (HTE)** of the *Ser Pilo Paga (SPP)* financial aid program on various outcomes such as university enrollment, graduation, and long-term labor market performance. The analysis focuses on how the effect of receiving the SPP scholarship varies across individuals with different baseline characteristics.
+
+### Causal Identification Strategy
+
+We follow a potential outcomes framework. The treatment of interest is receiving the SPP scholarship (`W_i = 1`), and the outcome (`Y_i`) can be access to higher education, graduation, or labor market measures.
+
+The estimand is the **Conditional Average Treatment Effect (CATE):**
+
+$$\tau(X_i) = \mathbb{E}[Y_i(1) - Y_i(0) \mid X_i]$$
+
+
 This repository contains the full set of scripts used to prepare, estimate, and visualize heterogeneous treatment effect models of Colombia's *Ser Pilo Paga* (SPP) program for the 2014 and 2015 cohorts, using Causal Forests.
 
 Plots of the Heterogeneus Treatment Effects (HTE) can be found in the following [URL](https://luisjo819ucla.github.io/SPP_Causal_forest/) 
