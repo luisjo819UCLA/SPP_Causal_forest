@@ -1,6 +1,6 @@
 # Replication Package – Causal Random Forest for SPP (Ser Pilo Paga)
 
-This project estimates the **heterogeneous treatment effects (HTE)** of the *Ser Pilo Paga (SPP)* financial aid program on various outcomes such as university enrollment, graduation, and long-term labor market performance. *Ser Pilo Paga (SPP)*is a colombian student loan scheme, where the loan is forgiven as long as the student graduates from the program. The analysis focuses on how the effect of receiving the SPP scholarship varies across individuals with different baseline characteristics.
+This project estimates the **heterogeneous treatment effects (HTE)** of the *Ser Pilo Paga (SPP)* financial aid program on various outcomes such as university enrollment, graduation, and long-term labor market performance. *Ser Pilo Paga (SPP)* is a colombian student loan scheme, where the loan is forgiven as long as the student graduates from the program. The analysis focuses on how the effect of receiving the SPP scholarship varies across individuals with different baseline characteristics.
 
 ### Causal Identification Strategy
 
@@ -50,9 +50,11 @@ Steps (simplified):
 Causal Forest is implemented using the `grf` package in R (Generalized Random Forests).
 
 ---
-
+## Results
 Plots of the Heterogeneus Treatment Effects (HTE) can be found in the following [URL](https://luisjo819ucla.github.io/SPP_Causal_forest/) 
+
 The scripts can be found in the scripts folder.
+
 ---
 
 ## 📁 Project Structure
