@@ -1,15 +1,21 @@
 # Replication Package – Causal Random Forest for SPP (Ser Pilo Paga)
 
-This project estimates the **heterogeneous treatment effects (HTE)** of the *Ser Pilo Paga (SPP)* financial aid program on various outcomes such as university enrollment, graduation, and long-term labor market performance. The analysis focuses on how the effect of receiving the SPP scholarship varies across individuals with different baseline characteristics.
+This project estimates the **heterogeneous treatment effects (HTE)** of the *Ser Pilo Paga (SPP)* financial aid program on various outcomes such as university enrollment, graduation, and long-term labor market performance. *Ser Pilo Paga (SPP)*is a colombian student loan scheme, where the loan is forgiven as long as the student graduates from the program. The analysis focuses on how the effect of receiving the SPP scholarship varies across individuals with different baseline characteristics.
 
 ### Causal Identification Strategy
 
-We follow a potential outcomes framework. The treatment of interest is receiving the SPP scholarship (`W_i = 1`), and the outcome (`Y_i`) can be access to higher education, graduation, or labor market measures.
+We follow the **potential outcomes** framework, where the treatment is receiving the SPP scholarship ($W_i = 1$), and the outcome ($Y_i$) can be education or labor-related.
 
-The estimand is the **Conditional Average Treatment Effect (CATE):**
+We aim to estimate the **Conditional Average Treatment Effect (CATE)**:
 
 $$\tau(X_i) = \mathbb{E}[Y_i(1) - Y_i(0) \mid X_i]$$
 
+Where:
+- $Y_i(1)$ and $Y_i(0)$ are the potential outcomes with and without treatment.
+- $X_i$ is a vector of covariates including:
+  - Socioeconomic score (SISBEN)
+  - Academic achievement (Saber 11)
+  - Household background and school context
 
 This repository contains the full set of scripts used to prepare, estimate, and visualize heterogeneous treatment effect models of Colombia's *Ser Pilo Paga* (SPP) program for the 2014 and 2015 cohorts, using Causal Forests.
 
